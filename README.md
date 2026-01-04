@@ -24,7 +24,7 @@ bash
 git clone https://github.com/NANDYALA-NEELAKANTESWAR-REDDY/scientific-calculator.git
 cd scientific-calculator
 
-##🤝 Contributing
+## 🤝 Contributing
 Contributions are welcome!
 
 Fork the repository
