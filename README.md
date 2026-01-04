@@ -24,3 +24,13 @@ bash
 git clone https://github.com/NANDYALA-NEELAKANTESWAR-REDDY/scientific-calculator.git
 cd scientific-calculator
 
+##🤝 Contributing
+Contributions are welcome!
+
+Fork the repository
+
+Create a new branch (feature-xyz)
+
+Commit your changes
+
+Open a Pull Request
