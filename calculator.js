@@ -5,6 +5,8 @@ class Calculator {
         this.operation = null;
         this.shouldResetScreen = false;
         this.memory = 0;
+        this.PRECISION_MULTIPLIER = 1e11;
+        this.MEMORY_INDICATOR_DURATION = 500;
         this.updateDisplay();
     }
 
@@ -12,6 +14,16 @@ class Calculator {
         document.getElementById('current-operand').textContent = this.currentOperand;
         document.getElementById('previous-operand').textContent = 
             this.previousOperand + (this.operation || '');
+    }
+
+    showError(message) {
+        const display = document.getElementById('current-operand');
+        const originalText = this.currentOperand;
+        display.textContent = `Error: ${message}`;
+        setTimeout(() => {
+            this.currentOperand = originalText;
+            this.updateDisplay();
+        }, 2000);
     }
 
     inputNumber(number) {
@@ -24,6 +36,20 @@ class Calculator {
             this.currentOperand = number;
         } else {
             this.currentOperand += number;
+        }
+        this.updateDisplay();
+    }
+
+    inputConstant(constant) {
+        if (this.shouldResetScreen) {
+            this.currentOperand = '';
+            this.shouldResetScreen = false;
+        }
+        
+        if (constant === 'pi') {
+            this.currentOperand = Math.PI.toString();
+        } else if (constant === 'e') {
+            this.currentOperand = Math.E.toString();
         }
         this.updateDisplay();
     }
@@ -103,7 +129,7 @@ class Calculator {
                 break;
             case '/':
                 if (current === 0) {
-                    alert('Cannot divide by zero');
+                    this.showError('Cannot divide by zero');
                     this.clear();
                     return;
                 }
@@ -142,21 +168,21 @@ class Calculator {
                 break;
             case 'log':
                 if (current <= 0) {
-                    alert('Logarithm undefined for non-positive numbers');
+                    this.showError('Log undefined for ≤ 0');
                     return;
                 }
                 result = Math.log10(current);
                 break;
             case 'ln':
                 if (current <= 0) {
-                    alert('Natural logarithm undefined for non-positive numbers');
+                    this.showError('Ln undefined for ≤ 0');
                     return;
                 }
                 result = Math.log(current);
                 break;
             case 'sqrt':
                 if (current < 0) {
-                    alert('Square root undefined for negative numbers');
+                    this.showError('√ undefined for negatives');
                     return;
                 }
                 result = Math.sqrt(current);
@@ -175,7 +201,7 @@ class Calculator {
     }
 
     roundResult(number) {
-        return Math.round(number * 100000000000) / 100000000000;
+        return Math.round(number * this.PRECISION_MULTIPLIER) / this.PRECISION_MULTIPLIER;
     }
 
     // Memory functions
@@ -213,7 +239,7 @@ class Calculator {
         display.textContent = `M: ${this.memory}`;
         setTimeout(() => {
             display.textContent = originalText;
-        }, 500);
+        }, this.MEMORY_INDICATOR_DURATION);
     }
 }
 
