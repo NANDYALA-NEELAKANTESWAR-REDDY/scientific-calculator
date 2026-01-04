@@ -19,7 +19,7 @@ It supports basic arithmetic as well as advanced mathematical functions.
 ### Prerequisites
 - [List dependencies, e.g., Python 3.10+, Node.js, etc.]
 
-Installation
+## Installation
 bash
 git clone https://github.com/NANDYALA-NEELAKANTESWAR-REDDY/scientific-calculator.git
 cd scientific-calculator
