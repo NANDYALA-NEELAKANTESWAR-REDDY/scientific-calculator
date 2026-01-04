@@ -7,6 +7,7 @@ class Calculator {
         this.memory = 0;
         this.PRECISION_MULTIPLIER = 1e11;
         this.MEMORY_INDICATOR_DURATION = 500;
+        this.ERROR_DISPLAY_DURATION = 2000;
         this.updateDisplay();
     }
 
@@ -23,7 +24,7 @@ class Calculator {
         setTimeout(() => {
             this.currentOperand = originalText;
             this.updateDisplay();
-        }, 2000);
+        }, this.ERROR_DISPLAY_DURATION);
     }
 
     inputNumber(number) {
@@ -156,6 +157,7 @@ class Calculator {
         
         let result;
         
+        // Trigonometric functions operate in degrees (not radians)
         switch (func) {
             case 'sin':
                 result = Math.sin(this.degreesToRadians(current));
