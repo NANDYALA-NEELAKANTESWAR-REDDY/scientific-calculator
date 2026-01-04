@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <div class="previous-operand" id="previous-operand"></div>
+            <div class="current-operand" id="current-operand">0</div>
+        </div>
+        <div class="buttons">
+            <!-- Memory and clear functions -->
+            <button class="btn function" onclick="calculator.clear()">C</button>
+            <button class="btn function" onclick="calculator.clearEntry()">CE</button>
+            <button class="btn function" onclick="calculator.backspace()">⌫</button>
+            <button class="btn operator" onclick="calculator.chooseOperation('/')">÷</button>
+            
+            <!-- Scientific functions row 1 -->
+            <button class="btn scientific" onclick="calculator.calculateFunction('sin')">sin</button>
+            <button class="btn scientific" onclick="calculator.calculateFunction('cos')">cos</button>
+            <button class="btn scientific" onclick="calculator.calculateFunction('tan')">tan</button>
+            <button class="btn operator" onclick="calculator.chooseOperation('*')">×</button>
+            
+            <!-- Scientific functions row 2 -->
+            <button class="btn scientific" onclick="calculator.calculateFunction('log')">log</button>
+            <button class="btn scientific" onclick="calculator.calculateFunction('ln')">ln</button>
+            <button class="btn scientific" onclick="calculator.chooseOperation('^')">x^y</button>
+            <button class="btn operator" onclick="calculator.chooseOperation('-')">−</button>
+            
+            <!-- Scientific functions row 3 -->
+            <button class="btn scientific" onclick="calculator.calculateFunction('sqrt')">√</button>
+            <button class="btn scientific" onclick="calculator.inputConstant('pi')">π</button>
+            <button class="btn scientific" onclick="calculator.inputConstant('e')">e</button>
+            <button class="btn operator" onclick="calculator.chooseOperation('+')">+</button>
+            
+            <!-- Number pad -->
+            <button class="btn number" onclick="calculator.inputNumber('7')">7</button>
+            <button class="btn number" onclick="calculator.inputNumber('8')">8</button>
+            <button class="btn number" onclick="calculator.inputNumber('9')">9</button>
+            <button class="btn memory" onclick="calculator.memoryRecall()">MR</button>
+            
+            <button class="btn number" onclick="calculator.inputNumber('4')">4</button>
+            <button class="btn number" onclick="calculator.inputNumber('5')">5</button>
+            <button class="btn number" onclick="calculator.inputNumber('6')">6</button>
+            <button class="btn memory" onclick="calculator.memoryClear()">MC</button>
+            
+            <button class="btn number" onclick="calculator.inputNumber('1')">1</button>
+            <button class="btn number" onclick="calculator.inputNumber('2')">2</button>
+            <button class="btn number" onclick="calculator.inputNumber('3')">3</button>
+            <button class="btn memory" onclick="calculator.memoryAdd()">M+</button>
+            
+            <button class="btn number" onclick="calculator.toggleSign()">±</button>
+            <button class="btn number" onclick="calculator.inputNumber('0')">0</button>
+            <button class="btn number" onclick="calculator.inputDecimal()">.</button>
+            <button class="btn memory" onclick="calculator.memorySubtract()">M−</button>
+            
+            <!-- Equals button spanning full width -->
+            <button class="btn equals" onclick="calculator.calculate()">=</button>
+        </div>
+    </div>
+    <script src="calculator.js"></script>
+</body>
+</html>

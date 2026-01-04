@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.calculator {
+    background: #2d3436;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.display {
+    background: #1e272e;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: right;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.previous-operand {
+    color: #636e72;
+    font-size: 1.2rem;
+    min-height: 25px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.current-operand {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+    min-height: 40px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    padding: 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+    outline: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.number {
+    background: #74b9ff;
+    color: #2d3436;
+}
+
+.btn.number:hover {
+    background: #0984e3;
+    color: white;
+}
+
+.btn.operator {
+    background: #fd79a8;
+    color: white;
+}
+
+.btn.operator:hover {
+    background: #e84393;
+}
+
+.btn.function {
+    background: #ffeaa7;
+    color: #2d3436;
+}
+
+.btn.function:hover {
+    background: #fdcb6e;
+}
+
+.btn.scientific {
+    background: #a29bfe;
+    color: white;
+    font-size: 1rem;
+}
+
+.btn.scientific:hover {
+    background: #6c5ce7;
+}
+
+.btn.memory {
+    background: #55efc4;
+    color: #2d3436;
+    font-size: 1rem;
+}
+
+.btn.memory:hover {
+    background: #00b894;
+    color: white;
+}
+
+.btn.equals {
+    background: #00b894;
+    color: white;
+    grid-column: span 4;
+    font-size: 1.5rem;
+}
+
+.btn.equals:hover {
+    background: #00a884;
+}
+
+@media (max-width: 500px) {
+    .calculator {
+        padding: 15px;
+    }
+    
+    .btn {
+        padding: 15px 10px;
+        font-size: 1rem;
+    }
+    
+    .btn.scientific,
+    .btn.memory {
+        font-size: 0.85rem;
+    }
+    
+    .current-operand {
+        font-size: 1.5rem;
+    }
+    
+    .previous-operand {
+        font-size: 1rem;
+    }
+}
